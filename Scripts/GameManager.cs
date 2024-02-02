@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        Pause(); // On met le jeu en pause au démarrage pour que le joueur le lance lui même
+        Pause(); //we put the game on pause at the start so the player can start it himself
     }
     public void Play()
     {
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
         playButton.SetActive(false);
         gameOver.SetActive(false);
-        Time.timeScale = 1; //on remet le temps à 1 pour que le jeu se lance
+        Time.timeScale = 1; //we set the time to 1 so the game starts
         player.enabled = true;
         Pipes[] pipes = FindObjectsOfType<Pipes>();//destroy all of the pipes
         for (int i = 0; i < pipes.Length; i++)
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0; //si le temps est à zéro, notre fonction Update est à l'arrêt
+        Time.timeScale = 0; //if the time is 0, our Update function is stopped
         player.enabled = false;
     }
     public void GameOver()
